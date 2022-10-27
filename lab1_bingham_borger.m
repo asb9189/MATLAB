@@ -1,4 +1,6 @@
 
+% PART ONE
+
 % 1.a Define and plot vectors u, v, and w
 
 u = [1, 0, 3];
@@ -85,7 +87,21 @@ answer = "Yes, our answer makes sense geometrically as we would expect" + newlin
      "when looking at the plot.";
 
 disp(answer);
+disp(newline);
 
+% PART TWO
 
+%2.a
+syms x y
+e1 = x - y == 3;
+e2 = 4*y == 1;
+e3 = (3*x) + (2*y) == -4;
+sol = solve(e1, e2, e3);
+
+% sol.x and sol.y have no value, hence no solution
+
+answer = "No, you cannot write w as a linear combination of u, v" + newline + ...
+    "as the `solve` command yields no solution for the system";
+disp(answer);
 
 
