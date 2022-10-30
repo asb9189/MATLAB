@@ -1,3 +1,8 @@
+% Authors:
+%
+%   Aleksei Bingham
+%   Ryan Borger
+
 % PART ONE
 close all
 clc
