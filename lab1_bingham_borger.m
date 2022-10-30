@@ -140,7 +140,7 @@ Y0=sol1.y;
 Z0=sol1.z;
 fprintf('Problem 2c: \n\n');
 clear fprintf
-fprintf('The solution to the system of equations %s, %s, and %s is x=%d, y=%d, and z=%d \n\n',e1,e2,e3,X,Y,Z); 
+fprintf('The solution to the system of equations %s, %s, and %s is x=%d, y=%d, and z=%d \n\n',e1,e2,e3,X0,Y0,Z0); 
 fprintf('The geometry is consistent with a linearly independence because the only intersection of the');
 fprintf(' equations e1, e2, and e3 are at the origin, 0 \n\n');
 clear fprintf
