@@ -97,6 +97,7 @@ disp('If not, explain why not geometrically.')
 disp(' ')
 disp('No, this transformation does not have an inverse as there is no mapping from y = 2x  back to the original shape');
 disp('For example, if we map the Bug -> y = 2x, we cannot apply the inverse and expect to get from y = 2x -> Bug')
+disp('Furthermore, we will not see our shape map to the line x = y/2')
 Ainv=A^-1
 figure(11)
 transform2D(Ainv, square)
@@ -132,11 +133,14 @@ transform2D(Ainv, bug)
 %   expand the x-dimension by a factor of 3
 disp('4.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
 % Reflect across the y = x
+disp('The following matrix reflects over y = x')
 R=[[0;1],[1;0]]
 
 % Stretch x-dir by factor of 3
+disp('The following matrix expands the x-comp by a factor of 3')
 S=[[3;0],[0;1]]
 
+disp('The following matrix feflects over y = x and then expands the x-comp by a factor of 3')
 A = R*S
 Tv=A*v
 
