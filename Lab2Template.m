@@ -54,24 +54,83 @@ transform2D(Ainv,bug)
 % Rotation Matrix = [ cos(theta) sin(theta) ]
 %                   [-sin(theta) cos(theta) ]
 % counterclockwise if θ is positive otherwise clockwise
-theta = 120
-A=[[cos(deg2rad(-theta));-sin(deg2rad(-theta))],[sin(deg2rad(-theta));cos(deg2rad(-theta))]]
-figure(5)
-transform2D(A, bug)
+disp('1.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
+rad = deg2rad(-120)
+A=[[cos(rad);-sin(rad)],[sin(rad);cos(rad)]]
+Tv=A*v
 
-% 2. Projection onto the line y = 2x
-A=[[1/5;2/5],[2/5;4/5]]
+disp('1.b Demonstrate your transformation by using transform2D(A,square) and transform2D(A,bug) to see the action on these shapes and make sure it is the correct transformation.')
+disp(' ')
+disp('See figures.')
+figure(5)
+transform2D(A, square)
 figure(6)
 transform2D(A, bug)
 
-% 3. Shear to the right
-A=[[1;0],[1;1]]
+disp(' ')
+disp('1.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
+disp('If not, explain why not geometrically.')
+disp(' ')
+disp('Yes, this transformation has an inverse, which would rotate 120 degrees counterclockwise.');
+Ainv=A^-1
 figure(7)
+transform2D(Ainv, square)
+figure(8)
+transform2D(Ainv, bug)
+
+% 2. Projection onto the line y = 2x
+disp('2.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
+A=[[1/5;2/5],[2/5;4/5]]
+Tv=A*v
+
+disp('2.b Demonstrate your transformation by using transform2D(A,square) and transform2D(A,bug) to see the action on these shapes and make sure it is the correct transformation.')
+disp(' ')
+disp('See figures.')
+figure(9)
+transform2D(A, square)
+figure(10)
 transform2D(A, bug)
+
+disp(' ')
+disp('2.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
+disp('If not, explain why not geometrically.')
+disp(' ')
+disp('No, this transformation does not have an inverse as there is no mapping from y = 2x  back to the original shape');
+disp('For example, if we map the Bug -> y = 2x, we cannot apply the inverse and expect to get from y = 2x -> Bug')
+Ainv=A^-1
+figure(11)
+transform2D(Ainv, square)
+figure(12)
+transform2D(Ainv, bug)
+
+% 3. Shear to the right
+disp('3.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
+A=[[1;0],[1;1]]
+Tv=A*v
+
+disp('3.b Demonstrate your transformation by using transform2D(A,square) and transform2D(A,bug) to see the action on these shapes and make sure it is the correct transformation.')
+disp(' ')
+disp('See figures.')
+figure(13)
+transform2D(A, square)
+figure(14)
+transform2D(A, bug)
+
+disp(' ')
+disp('3.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
+disp('If not, explain why not geometrically.')
+disp(' ')
+disp('Yes, this transformation does have an inverse and will shear the image to the left');
+Ainv=A^-1
+figure(15)
+transform2D(Ainv, square)
+figure(16)
+transform2D(Ainv, bug)
+
 
 % 4. Reflect across the y = x line and then 
 %   expand the x-dimension by a factor of 3
-
+disp('4.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
 % Reflect across the y = x
 R=[[0;1],[1;0]]
 
@@ -79,9 +138,26 @@ R=[[0;1],[1;0]]
 S=[[3;0],[0;1]]
 
 A = R*S
+Tv=A*v
+
+disp('4.b Demonstrate your transformation by using transform2D(A,square) and transform2D(A,bug) to see the action on these shapes and make sure it is the correct transformation.')
+disp(' ')
+disp('See figures.')
+figure(17)
+transform2D(A, square)
+figure(18)
 transform2D(A, bug)
 
-
+disp(' ')
+disp('4.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
+disp('If not, explain why not geometrically.')
+disp(' ')
+disp('Yes, this transformation does have an inverse and will reflect over the line x = y but rather than stretching by 2x it will shrink by 0.5y');
+Ainv=A^-1
+figure(19)
+transform2D(Ainv, square)
+figure(20)
+transform2D(Ainv, bug)
 
 % 
 % disp('Test for transform3D. This was just some random 3x3 matrix.')
