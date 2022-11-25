@@ -13,7 +13,7 @@ house=[[0;0;0] [1;0;0] [1;0;1]  [1;0;0] [1;1;0] [1;1;1] [1;1;0] [0;1;0] [0;1;1] 
 V0=[0;0;0]; V1=[1;0;0];V2=[1;1;0];V3=[0;1;0];V4=[0;0;1];V5=[1;0;1];V6=[1;1;1];V7=[0;1;1]
 cube=[V0, V1, V5, V1, V2, V6, V2, V3, V7, V3, V0, V4, V5, V6, V7, V4];
 
-%You may use the code for this example as a template. 
+%You may use the code for this example as a template.
 disp('Example: Define and demonstrate a tranformation which rotates points/lines/figures 90 degrees counterclockwise.')
 disp(' a. Define the standard matrix of the transformation and demonstrate on a generic vector.')
 syms x y
@@ -47,16 +47,27 @@ transform2D(Ainv,square)
 figure(4)
 transform2D(Ainv,bug)
 
-%Your code for Part 1 goes here. 
+%Your code for Part 1 goes here.
 
-disp('Test for transform3D. This was just some random 3x3 matrix.')
-M=[[1;2;3],[2;1;2], [0;1;0]]
-syms z
-w=[x;y;z] %So as not to overwrite the 2x2 vector v above. 
-Sw=M*w
+% 1. Rotation of 120 degrees clockwise
+
+% Rotation Matrix = [ cos(theta) sin(theta) ]
+%                   [-sin(theta) cos(theta) ]
+% counterclockwise if θ is positive otherwise clockwise
+theta = 120
+A=[[cos(-deg2rad(theta));-sin(-deg2rad(theta))],[sin(-deg2rad(theta));cos(-deg2rad(theta))]]
 figure(5)
-transform3D(M,cube)
-figure(6)
-transform3D(M,house)
+transform2D(A, bug)
+
+% 
+% disp('Test for transform3D. This was just some random 3x3 matrix.')
+% M=[[1;2;3],[2;1;2], [0;1;0]]
+% syms z
+% w=[x;y;z] %So as not to overwrite the 2x2 vector v above. 
+% Sw=M*w
+% figure(5)
+% transform3D(M,cube)
+% figure(6)
+% transform3D(M,house)
 
 %Your code for Part 2 goes here. 
