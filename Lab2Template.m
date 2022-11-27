@@ -62,7 +62,7 @@ transform2D(Ainv,bug)
 % counterclockwise if θ is positive otherwise clockwise
 disp('1.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
 rad = deg2rad(-120)
-A=[[cos(rad);-sin(rad)],[sin(rad);cos(rad)]] %TODO: Shouldnt this be: A=[[cos(rad);sin(rad)],[-sin(rad);cos(rad)]] ?
+A=[[cos(rad);-sin(rad)],[sin(rad);cos(rad)]]
 Tv=A*v
 
 disp('1.b Demonstrate your transformation by using transform2D(A,square) and transform2D(A,bug) to see the action on these shapes and make sure it is the correct transformation.')
@@ -262,7 +262,7 @@ transform3D(Minv, house)
 %Rotate 45 degrees clockwise around the positive z-axis
 disp('8.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
 rad1 = deg2rad(45)
-M=[[cos(rad1);-sin(rad1);0],[sin(rad1);cos(rad1);0], [0;0;1]]
+M=[[cos(rad1);sin(rad1);0],[-sin(rad1);cos(rad1);0], [0;0;1]]
 Sw=M*w
 
 disp('8.b Demonstrate your transformation by using transform3D(M,cube) and transform3D(M,house) to see the action on these shapes and make sure it is the correct transformation.')
