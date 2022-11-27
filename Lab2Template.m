@@ -277,7 +277,7 @@ disp(' ')
 disp('8.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
 disp('If not, explain why not geometrically.')
 disp(' ')
-disp('No, this transformation does not have an inverse. Graphically the inverse seems to rotate 45 degrees counterclockwise');
+disp('Yes, this transformation does have an inverse. Graphically the inverse seems to rotate 45 degrees counterclockwise');
 Minv=M^-1
 figure(35)
 transform3D(Minv, cube)
