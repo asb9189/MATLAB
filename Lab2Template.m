@@ -1,4 +1,10 @@
+% Lab Members:
+% Aleksei Bingham
+% Ryan Borger
 
+% This just closes all previous figures and clears the console.
+close all
+clc
 
 %Code for pictures. DO NOT CHANGE THIS CODE. 
 square=[[0;0],[1;0],[1;1],[0;1],[0;0]];
@@ -56,7 +62,7 @@ transform2D(Ainv,bug)
 % counterclockwise if θ is positive otherwise clockwise
 disp('1.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
 rad = deg2rad(-120)
-A=[[cos(rad);-sin(rad)],[sin(rad);cos(rad)]]
+A=[[cos(rad);-sin(rad)],[sin(rad);cos(rad)]] %TODO: Shouldnt this be: A=[[cos(rad);sin(rad)],[-sin(rad);cos(rad)]] ?
 Tv=A*v
 
 disp('1.b Demonstrate your transformation by using transform2D(A,square) and transform2D(A,bug) to see the action on these shapes and make sure it is the correct transformation.')
@@ -163,15 +169,117 @@ transform2D(Ainv, square)
 figure(20)
 transform2D(Ainv, bug)
 
-% 
-% disp('Test for transform3D. This was just some random 3x3 matrix.')
-% M=[[1;2;3],[2;1;2], [0;1;0]]
-% syms z
-% w=[x;y;z] %So as not to overwrite the 2x2 vector v above. 
-% Sw=M*w
-% figure(5)
-% transform3D(M,cube)
-% figure(6)
-% transform3D(M,house)
 
 %Your code for Part 2 goes here. 
+
+% 5. Reflect across the yz-plane.
+
+% Reflection Matrix = [ -1 0 0 ]
+%                     [  0 1 0 ]
+%                     [  0 0 1 ]
+% 
+
+%Reflect across the yz-plane
+disp('5.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
+syms z
+w=[x;y;z] %So as not to overwrite the 2x2 vector v above.
+M=[[-1;0;0], [0;1;0], [0;0;1]]
+Sw=M*w
+
+disp('5.b Demonstrate your transformation by using transform3D(M,cube) and transform3D(M,house) to see the action on these shapes and make sure it is the correct transformation.')
+disp(' ')
+disp('See figures.')
+figure(21)
+transform3D(M, cube)
+figure(22)
+transform3D(M, house)
+
+disp(' ')
+disp('5.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
+disp('If not, explain why not geometrically.')
+disp(' ')
+disp('Yes, this transformation has an inverse. Graphically it is the same because the inverse is the same as the original matrix.');
+Minv=M^-1
+figure(23)
+transform3D(Minv, cube)
+figure(24)
+transform3D(Minv, house)
+
+%Double its length (x-direction) and triple its height (z-direction)
+disp('6.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
+M=[[2;0;0], [0;0;0], [0;0;3]]
+Sw=M*w
+
+disp('6.b Demonstrate your transformation by using transform3D(M,cube) and transform3D(M,house) to see the action on these shapes and make sure it is the correct transformation.')
+disp(' ')
+disp('See figures.')
+figure(25)
+transform3D(M, cube)
+figure(26)
+transform3D(M, house)
+
+disp(' ')
+disp('6.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
+disp('If not, explain why not geometrically.')
+disp(' ')
+disp('No, this transformation does not have an inverse. Graphically the inverse does not exist because the y axis was not scaled.');
+Minv=M^-1
+figure(27)
+transform3D(Minv, cube)
+figure(28)
+transform3D(Minv, house)
+
+%Project onto the yz-plane
+disp('7.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
+M=[[0;0;0], [0;01;0], [0;0;1]]
+Sw=M*w
+
+disp('7.b Demonstrate your transformation by using transform3D(M,cube) and transform3D(M,house) to see the action on these shapes and make sure it is the correct transformation.')
+disp(' ')
+disp('See figures.')
+figure(29)
+transform3D(M, cube)
+figure(30)
+transform3D(M, house)
+
+disp(' ')
+disp('7.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
+disp('If not, explain why not geometrically.')
+disp(' ')
+disp('No, this transformation does not have an inverse. Graphically the inverse does not exist because the x axis was never projected onto.');
+Minv=M^-1
+figure(31)
+transform3D(Minv, cube)
+figure(32)
+transform3D(Minv, house)
+
+% 8. Rotation of 45 degrees clockwise around positive z
+
+% Rotation Matrix = [ cos(theta) -sin(theta) 0 ]
+%                   [ sin(theta)  cos(theta) 0 ]
+%                   [    0           0       1 ]
+% counterclockwise if θ is positive otherwise clockwise
+%Rotate 45 degrees clockwise around the positive z-axis
+disp('8.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
+rad1 = deg2rad(45)
+M=[[cos(rad1);-sin(rad1);0],[sin(rad1);cos(rad1);0], [0;0;1]]
+Sw=M*w
+
+disp('8.b Demonstrate your transformation by using transform3D(M,cube) and transform3D(M,house) to see the action on these shapes and make sure it is the correct transformation.')
+disp(' ')
+disp('See figures.')
+figure(33)
+transform3D(M, cube)
+figure(34)
+transform3D(M, house)
+
+disp(' ')
+disp('8.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
+disp('If not, explain why not geometrically.')
+disp(' ')
+disp('No, this transformation does not have an inverse. Graphically the inverse seems to rotate 45 degrees counterclockwise');
+Minv=M^-1
+figure(35)
+transform3D(Minv, cube)
+figure(36)
+transform3D(Minv, house)
