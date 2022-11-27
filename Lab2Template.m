@@ -231,7 +231,7 @@ transform3D(Minv, house)
 
 %Project onto the yz-plane
 disp('7.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
-M=[[0;0;0], [0;01;0], [0;0;1]]
+M=[[0;0;0], [0;1;0], [0;0;1]]
 Sw=M*w
 
 disp('7.b Demonstrate your transformation by using transform3D(M,cube) and transform3D(M,house) to see the action on these shapes and make sure it is the correct transformation.')
