@@ -206,8 +206,11 @@ figure(24)
 transform3D(Minv, house)
 
 %Double its length (x-direction) and triple its height (z-direction)
+% [2 0 0]
+% [0 1 0]
+% [0 0 3]
 disp('6.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
-M=[[2;0;0], [0;0;0], [0;0;3]]
+M=[[2;0;0], [0;1;0], [0;0;3]]
 Sw=M*w
 
 disp('6.b Demonstrate your transformation by using transform3D(M,cube) and transform3D(M,house) to see the action on these shapes and make sure it is the correct transformation.')
@@ -222,7 +225,7 @@ disp(' ')
 disp('6.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
 disp('If not, explain why not geometrically.')
 disp(' ')
-disp('No, this transformation does not have an inverse. Graphically the inverse does not exist because the y axis was not scaled.');
+disp('Yes, this transformation has an inverse. Graphically the inverse shrinks the length and height instead of increasing length and height.');
 Minv=M^-1
 figure(27)
 transform3D(Minv, cube)
@@ -230,6 +233,9 @@ figure(28)
 transform3D(Minv, house)
 
 %Project onto the yz-plane
+% [0 0 0]
+% [0 1 0]
+% [0 0 1]
 disp('7.a Define the standard matrix of the transformation and demonstrate on a generic vector.')
 M=[[0;0;0], [0;1;0], [0;0;1]]
 Sw=M*w
@@ -277,7 +283,7 @@ disp(' ')
 disp('8.c Determine whether this transformation has an inverse. If so, describe and demonstrate it geometrically.')
 disp('If not, explain why not geometrically.')
 disp(' ')
-disp('Yes, this transformation does have an inverse. Graphically the inverse seems to rotate 45 degrees clockwise');
+disp('Yes, this transformation does have an inverse. Graphically the inverse seems to rotate 45 degrees counterclockwise instead of clockwise');
 Minv=M^-1
 figure(35)
 transform3D(Minv, cube)
